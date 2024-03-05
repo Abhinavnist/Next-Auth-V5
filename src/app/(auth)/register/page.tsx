@@ -16,19 +16,20 @@ export default function Register() {
     const submitForm =async()=>{
       setLoading(true);
       console.log("The payload is", authState);
-      axios
+      await axios
         .post("/api/auth/register", authState)
         .then((res) => {
-          setLoading(false);
-          console.log("The response is", res.data);
-          const response = res.data;
-          if (response.status == 200) {
-            // router.push(`/login?message=${response.msg}`);
-          } else if (response?.status == 400) {
-            setErrors(response?.errors);
-          } else {
-            setErrors({});
-          }
+          // setLoading(false);
+          // console.log("The response is", res.data);
+          // const response = res.data;
+          // if (response.status == 200) {
+          //   // router.push(`/login?message=${response.msg}`);
+          // } else if (response?.status == 400) {
+          //   setErrors(response?.errors);
+          // } else {
+          //   setErrors({});
+          // }
+          console.log(res)
         })
         .catch((err) => console.log("The error is", err));
     };
